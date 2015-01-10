@@ -24,7 +24,8 @@ IF(UNIX)
         /usr/local/include
         /opt/leap/include
         /opt/leap_sdk/include
-        /opt/include INTERNAL)
+        /opt/include 
+        /opt/LeapSDK/include INTERNAL)
     SET(LEAP_LIBRARY_SEARCH_DIRS
         /usr/lib
         /usr/lib64
@@ -33,7 +34,8 @@ IF(UNIX)
         /opt/leap/lib
         /opt/leap/lib64
         /opt/leap_sdk/lib
-        /opt/leap_sdk/lib64 INTERNAL)
+        /opt/leap_sdk/lib64
+        /opt/LeapSDK/lib/x64 INTERNAL)
     SET(LEAP_INC_DIR_SUFFIXES PATH_SUFFIXES leap)
 ELSE(UNIX)
     #WIN32
@@ -59,7 +61,7 @@ ENDIF(NOT LEAP_FIND_QUIETLY)
 
 # Search for header files
 FIND_PATH(LEAP_INCLUDE_DIR Leap.h
-    PATHS ${LEAP_INCLUDE_SEARCH_PATHS}
+    PATHS ${LEAP_INCLUDE_SEARCH_DIRS}
     PATH_SUFFIXES ${LEAP_INC_DIR_SUFFIXES})
 
 # Search for library
